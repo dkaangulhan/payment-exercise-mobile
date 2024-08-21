@@ -1,16 +1,9 @@
-# payment_exercise
+# Intro
 
-A new Flutter project.
+This project is being developed to explore payment systems using iyzico APIs. The project is mobile side of full-stack project "full-stack-payment-exercise" [Project link](https://github.com/dkaangulhan/full-stack-payment-exercise)
 
-## Getting Started
+## Initializing
 
-This project is a starting point for a Flutter application.
+The project uses environment variables. To provide required enviroment variables create a file named ".env" in the root of the project. The file should contain the following list of items:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- HOST: This field specifies the host address of the API we are connecting. If you are running the server locally the value will be like that: http://\<your-local-address\>
