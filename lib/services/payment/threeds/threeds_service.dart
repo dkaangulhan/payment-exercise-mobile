@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:payment_exercise/env/env.dart';
-import 'package:payment_exercise/services/payment/threeds/ithreeds_service.dart';
 import 'package:payment_exercise/services/payment/models/payment_init_params.dart';
+import 'package:payment_exercise/services/payment/threeds/ithreeds_service.dart';
 import 'package:payment_exercise/services/payment/threeds/models/threeds_response_model.dart';
 
 /// Threeds service.
@@ -31,7 +31,9 @@ class ThreedsService implements IThreedsService {
         jsonDecode(response.body) as Map<String, dynamic>,
       );
     } else {
-      throw Exception('Failed to initialize 3DS');
+      throw Exception(
+        '''Failed to initialize 3DS, status code: ${response.statusCode}, body: ${response.body}''',
+      );
     }
   }
 }

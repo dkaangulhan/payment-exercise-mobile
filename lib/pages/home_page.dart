@@ -20,7 +20,7 @@ class HomePage extends StatelessWidget {
             /// Shopping cart icon
             icon: const Icon(Icons.shopping_cart),
             onPressed: () async {
-              await context.push('/profile/cart');
+              context.go('/profile/cart');
             },
           ),
         ],

@@ -31,6 +31,18 @@ class UserSession {
     required this.user,
   }) : isLoggedIn = true;
 
+  UserSession copyWith({
+    bool? isLoggedIn,
+    String? token,
+    UserModel? user,
+  }) {
+    return UserSession(
+      isLoggedIn: isLoggedIn ?? this.isLoggedIn,
+      token: token ?? this.token,
+      user: user ?? this.user,
+    );
+  }
+
   final bool isLoggedIn;
   final String? token;
   final UserModel? user;

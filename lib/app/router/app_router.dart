@@ -8,6 +8,8 @@ import 'package:payment_exercise/pages/auth/register_page.dart';
 import 'package:payment_exercise/pages/checkout_page.dart';
 import 'package:payment_exercise/pages/home_page.dart';
 import 'package:payment_exercise/pages/product_details_page.dart';
+import 'package:payment_exercise/pages/profile/edit_profile_address_page.dart';
+import 'package:payment_exercise/pages/profile/edit_profile_page.dart';
 import 'package:payment_exercise/pages/profile_page.dart';
 import 'package:payment_exercise/pages/shopping_cart_page.dart';
 
@@ -81,6 +83,23 @@ class AppRouter {
                   return const ProfilePage();
                 },
                 routes: [
+                  GoRoute(
+                    path: 'edit',
+                    builder: (context, state) {
+                      return const EditProfilePage();
+                    },
+                    routes: [
+                      GoRoute(
+                        path: 'address',
+                        builder: (context, state) {
+                          final user = getit<SessionStore>().user!;
+                          return EditProfileAdressPage(
+                            user: user,
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                   GoRoute(
                     path: 'cart',
                     builder: (context, state) {
