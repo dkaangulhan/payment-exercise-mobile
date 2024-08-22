@@ -47,7 +47,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       title: 'Name',
                       onSaved: (String? value) async {
                         // Save the name.
-                        await UpdateProfileUseCase(getit(), getit()).execute(
+                        await UpdateProfileUseCase(
+                          getit(),
+                          getit(),
+                          getit(),
+                        ).execute(
                           params: UpdateProfileParams(
                             name: value,
                           ),
@@ -76,7 +80,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       title: 'Identity Number',
                       onSaved: (String? value) async {
                         // Save the name.
-                        await UpdateProfileUseCase(getit(), getit()).execute(
+                        await UpdateProfileUseCase(
+                          getit(),
+                          getit(),
+                          getit(),
+                        ).execute(
                           params: UpdateProfileParams(
                             identityNumber: value,
                           ),

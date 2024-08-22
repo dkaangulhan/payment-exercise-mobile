@@ -1,5 +1,6 @@
 import 'package:payment_exercise/global_stores/session_store.dart';
 import 'package:payment_exercise/repos/profile_repo.dart';
+import 'package:payment_exercise/repos/session_repo.dart';
 import 'package:payment_exercise/use_cases/profile/models/update_profile_params.dart';
 
 /// This class is responsible for updating the profile.
@@ -7,11 +8,13 @@ class UpdateProfileUseCase {
   /// Constructor.
   UpdateProfileUseCase(
     this.profileRepo,
+    this.sessionRepo,
     this.sessionStore,
   );
 
   // ignore: public_member_api_docs
   final ProfileRepo profileRepo;
+  final SessionRepo sessionRepo;
   // ignore: public_member_api_docs
   final SessionStore sessionStore;
 
@@ -25,8 +28,11 @@ class UpdateProfileUseCase {
       params,
     );
     final updatedUser = await profileRepo.getUser(token);
+
     sessionStore.userSession = sessionStore.userSession.copyWith(
       user: updatedUser,
     );
+
+    await sessionRepo.saveSession(sessionStore.userSession);
   }
 }

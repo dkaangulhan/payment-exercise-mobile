@@ -143,7 +143,11 @@ class _EditProfileAdressPageState extends State<EditProfileAdressPage> {
         zipCode: zipCodeController.text,
       );
 
-      await UpdateProfileUseCase(getit(), getit()).execute(
+      await UpdateProfileUseCase(
+        getit(),
+        getit(),
+        getit(),
+      ).execute(
         params: UpdateProfileParams(
           addressList: [address],
         ),
