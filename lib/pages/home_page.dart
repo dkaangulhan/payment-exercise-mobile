@@ -54,6 +54,13 @@ class _ProductList extends StatelessWidget {
       builder: (context, _) {
         final store = getit<ProductStore>();
         final products = store.products;
+
+        if (store.isLoading) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
         return GridView.builder(
           padding: const EdgeInsets.all(8),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

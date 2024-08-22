@@ -14,7 +14,10 @@ class GetAllProductsUseCase {
 
   /// Fetches all products
   Future<void> execute() async {
+    productStore.isLoading = true;
     final products = await productRepo.fetchProducts();
-    productStore.addAllProducts(products);
+    productStore
+      ..addAllProducts(products)
+      ..isLoading = false;
   }
 }

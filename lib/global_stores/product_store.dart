@@ -8,6 +8,14 @@ class ProductStore extends ChangeNotifier {
 
   /// List of products
   List<ProductModel> products = [];
+  bool _isLoading = false;
+
+  /// True while loading products
+  bool get isLoading => _isLoading;
+  set isLoading(bool value) {
+    _isLoading = value;
+    notifyListeners();
+  }
 
   /// Adds a product to the list
   void addProduct(ProductModel product) {
