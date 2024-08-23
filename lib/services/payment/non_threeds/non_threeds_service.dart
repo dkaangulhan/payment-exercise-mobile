@@ -21,7 +21,9 @@ class NonThreedsService implements INonThreedsService {
     );
 
     if (response.statusCode != 200) {
-      throw Exception('Failed to pay');
+      throw Exception(
+        '''Failed to pay, status code: ${response.statusCode}, body: ${response.body}''',
+      );
     }
   }
 }

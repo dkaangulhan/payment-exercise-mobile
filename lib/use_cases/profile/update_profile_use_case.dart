@@ -14,6 +14,7 @@ class UpdateProfileUseCase {
 
   // ignore: public_member_api_docs
   final ProfileRepo profileRepo;
+  // ignore: public_member_api_docs
   final SessionRepo sessionRepo;
   // ignore: public_member_api_docs
   final SessionStore sessionStore;
